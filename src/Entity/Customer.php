@@ -27,7 +27,7 @@ class Customer
     private $email;
     /**
      * @var string|null
-     * @ORM\Column(name="email", type="string", length=50)
+     * @ORM\Column(name="phone_number", type="string", length=50)
      */
     private $phone;
 
@@ -69,12 +69,5 @@ class Customer
     {
         $this->phone = $phone;
     }
-
-    /**
-     * @return mixed
-     */
-
-
-
 
 }

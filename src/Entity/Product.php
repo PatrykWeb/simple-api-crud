@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  *
- * @ORM\Column(name="app_product")
+ * @ORM\Table(name="app_product")
  * @ORM\Entity()
  */
 
@@ -33,7 +33,7 @@ class Product
     private $title;
     /**
      * @var int|null
-     * @ORM\Table(name="price", type="integer")
+     * @ORM\Column(name="price", type="integer")
      */
     private $price;
 

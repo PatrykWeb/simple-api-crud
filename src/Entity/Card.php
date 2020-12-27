@@ -3,73 +3,81 @@
 
 namespace App\Entity;
 
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Class Card
- * @package App\Entity
  * @ORM\Table(name="app_card")
  * @ORM\Entity()
  */
 
 class Card
 {
-
-    public function __construct()
+    public function __construct($products)
     {
         $this->products = new ArrayCollection();
     }
 
     /**
-     * @var
-     * @ORM\Column(name="data_time" type="datatime")
+     * @var int|null
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id()
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $dataTime;
+    private $id;
     /**
-     * @var string|null
-     * @ORM\Column(name="customer, type="string", length=100)
+     * @var DateTime|null
+     * @ORM\Column(name="date_time", type="datetime")
      */
-    private $customer;
+    private $dateTime;
     /**
-     * @var string|null
+     * @var Customer|null
      * @ORM\OneToOne(targetEntity="Customer")
      */
+    private $customer;
     /**
      * @var Collection|Product[]
      * @ORM\ManyToMany(targetEntity="Product")
      */
     private $products;
-
     /**
-     * @return mixed
+     * @return int|null
      */
-    public function getDataTime()
+    public function getId(): ?int
     {
-        return $this->dataTime;
+        return $this->id;
     }
 
     /**
-     * @param mixed $dataTime
+     * @return DateTime|null
      */
-    public function setDataTime($dataTime): void
+    public function getDateTime(): ?DateTime
     {
-        $this->dataTime = $dataTime;
+        return $this->dateTime;
     }
 
     /**
-     * @return string|null
+     * @param DateTime|null $dateTime
      */
-    public function getCustomer(): ?string
+    public function setDateTime(?DateTime $dateTime): void
+    {
+        $this->dateTime = $dateTime;
+    }
+
+    /**
+     * @return Customer|null
+     */
+    public function getCustomer(): ?Customer
     {
         return $this->customer;
     }
 
     /**
-     * @param string|null $customer
+     * @param Customer|null $customer
      */
-    public function setCustomer(?string $customer): void
+    public function setCustomer(?Customer $customer): void
     {
         $this->customer = $customer;
     }
