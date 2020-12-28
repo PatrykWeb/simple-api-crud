@@ -28,7 +28,7 @@ class Card
      */
     private $id;
     /**
-     * @var DateTime|null
+     * @var \DateTime|null
      * @ORM\Column(name="date_time", type="datetime")
      */
     private $dateTime;
