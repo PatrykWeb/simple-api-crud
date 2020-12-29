@@ -22,8 +22,21 @@ card_list:
   methods: [GET]
   requirements:
     id: '\d+'
-
 card_create:
   path: /api/v1/customers/card
   controller: App\Controller\CardController:createAction
   methods: [POST]
+card_delete:
+  path: /api/v1/customers/{customerId}/card/{cardId}
+  controller: App\Controller\CardController:deleteCard
+  methods: [DELETE]
+  requirements:
+    id: '\d+'
+card_update:
+  path: api/v1/customers/{customerId}/card
+  controller: App\Controller\CardController:updateAction
+  methods: [PATCH]
+  requirements:
+    id: '\d+'
+
+
