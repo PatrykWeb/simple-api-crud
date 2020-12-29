@@ -6,6 +6,7 @@ namespace App\Form\Type;
 
 use App\Entity\Card;
 use App\Entity\Customer;
+use App\Entity\Product;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
@@ -31,7 +32,7 @@ class CardType extends AbstractType
                 ]
             ])
             ->add('products', EntityType::class, [
-                'class' => ProductType::class,
+                'class' => Product::class,
                 'multiple' => true,
                 'constraints' => [
                     new NotNull()

@@ -32,7 +32,7 @@ class CardController extends AbstractApiController
 
         return $this->respond($card);
     }
-    public function createAction(Request $request) {
+    public function createAction(Request $request): Response {
 
         $form = $this->buildForm(CardType::class);
         $form->handleRequest($request);

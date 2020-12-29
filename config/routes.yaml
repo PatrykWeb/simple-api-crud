@@ -15,14 +15,15 @@ product_create:
   path: /api/v1/products
   controller: App\Controller\ProductController:createAction
   methods: [POST]
-  requirements:
-    id: '\d+'
 
-cart_list:
+card_list:
   path: /api/v1/customers/{id}/card
   controller: App\Controller\CardController:showAction
   methods: [GET]
-cart_create:
+  requirements:
+    id: '\d+'
+
+card_create:
   path: /api/v1/customers/card
   controller: App\Controller\CardController:createAction
   methods: [POST]
